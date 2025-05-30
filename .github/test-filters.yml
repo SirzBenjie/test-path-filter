@@ -2,25 +2,25 @@ nomatch:
   - "!**/*.py" # No .py files
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
-  - "!**/.git*" # .gitkeep and family
+  - "!**/.gitkeep*" # .gitkeep and family
 src:
   - "src/**"
   - "!**/*.py" # No .py files
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
-  - "!**/.git*" # .gitkeep and family
+  - "!**/.gitkeep*" # .gitkeep and family
 test:
   - "test/**"
   - "!**/*.py" # No .py files
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
-  - "!**/.git*" # .gitkeep and family
+  - "!**/.gitkeep*" # .gitkeep and family
 public:
   - "public/**"
   - "!**/*.py" # No .py files
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
-  - "!**/.git*" # .gitkeep and family
+  - "!**/.gitkeep*" # .gitkeep and family
 workflows:
   # Workflows that can impact tests
   - ".github/workflows/test*.yml"
