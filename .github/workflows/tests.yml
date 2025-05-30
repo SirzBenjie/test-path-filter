@@ -36,3 +36,11 @@ jobs:
     steps:
       - name: echo
         run: echo "Running tests because changes were detected"
+  run-steps-2:
+    name: Run Steps 2
+    needs: changes
+    runs-on: ubuntu-latest
+    if: ${{ needs.changes.outputs.all == 'false' }}
+    steps:
+      - name: echo
+        run: echo "Running steps 2 because changes were detected"
