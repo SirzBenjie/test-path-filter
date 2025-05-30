@@ -28,26 +28,14 @@ jobs:
         id: filter
         with:
           filters: .github/test-filters.yml
-    #   - name: print output
-    #     if: steps.filter.outputs.all == 'true'
-    #     run: echo changes detected
-    #   - name: print output
-    #     if: steps.filter.outputs.all != 'true'
-    #     run: echo ${{ steps.filter.outputs }}
 
   run-tests:
     name: Run Tests
+    matrix:
+        shard: [1, 2, 3]
+    uses: ./.github/workflows/reusable.yml
     needs: changes
-    runs-on: ubuntu-latest
-    if: ${{ needs.changes.outputs.all == 'true' }}
-    steps:
-      - name: echo
-        run: echo "Running tests because changes were detected"
-  run-steps-2:
-    name: Run Steps 2
-    needs: changes
-    runs-on: ubuntu-latest
-    if: ${{ needs.changes.outputs.all != 'true' }}
-    steps:
-      - name: echo
-        run: echo ${{ needs.changes.outputs }}
+    with:
+      shard: ${{ matrix.shard }}
+      totalShards: 3
+      skip: ${{ !needs.changes.outputs.all }}
