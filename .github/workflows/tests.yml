@@ -31,8 +31,7 @@ jobs:
   run-tests:
     name: Run Tests
     needs: check-path-change-filter
-    if: needs.check-path-change-filter.outputs.all == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: echo "Running tests since file changed"
+        run: echo ${{ needs.check-path-change-filter.outputs.all }}
