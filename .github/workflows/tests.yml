@@ -32,6 +32,7 @@ jobs:
     name: Run Tests
     needs: changes
     runs-on: ubuntu-latest
+    if: ${{ needs.changes.outputs.all == 'true' }}
     steps:
       - name: echo
-        run: echo ${{ needs.changes.outputs.all }}
+        run: echo "Running tests because changes were detected"
