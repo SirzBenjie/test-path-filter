@@ -1,0 +1,27 @@
+name: Test Template
+
+on:
+  workflow_call:
+    inputs:
+      shard:
+        required: true
+        type: number
+      totalShards:
+        required: true
+        type: number
+      skip:
+        required: true
+        type: boolean
+        default: false
+
+env:
+  JOB_NAME: Shard ${{ inputs.shard }} of ${{ inputs.totalShards }}
+jobs:
+  test:
+    name: ${{ vars.JOB_NAME }}
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.skip }}
+
+    steps:
+      - name: Echo output
+        run: echo "Running tests for shard ${{ inputs.shard }} of ${{ inputs.totalShards }}"
