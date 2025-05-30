@@ -1,34 +1,14 @@
-nomatch:
-  - "!**/*.py" # No .py files
-  - "!**/*.sh" # No .sh files
-  - "!**/*.md" # No .md files
-src:
-  - "src/**/*"
-  - "!**/*.py" # No .py files
-  - "!**/*.sh" # No .sh files
-  - "!**/*.md" # No .md files
-test:
-  - "test/**"
-  - "!**/*.py" # No .py files
-  - "!**/*.sh" # No .sh files
-  - "!**/*.md" # No .md files
-public:
-  - "public/**/*"
-
-workflows:
+all:
+  - "src/**/!(*.md|*.py|*.sh|*.gitkeep|*.gitignore)"
+  - "test/!(*.md|*.py|*.sh|*.gitkeep|*.gitignore)"
+  - "public/!(*.md|*.py|*.sh|*.gitkeep|*.gitignore)"
   # Workflows that can impact tests
   - ".github/workflows/test*.yml"
   - ".github/test-filters.yml"
-package:
   # top-level files
   - "package*.json"
-nvmrc:
   - ".nvrmc" # Updates to node version can break tests
-vite:
   - "vite*" # vite.config.ts, vite.vitest.config.ts, vitest.workspace.ts
-tsconfig:
   - "tsconfig*.json" # tsconfig.json tweaking can impact compilation
-
   - "global.d.ts"
   - ".env*"
-
