@@ -16,7 +16,7 @@ on:
 
 jobs:
   test:
-    name: 
+    name: Shard
     runs-on: ubuntu-latest
     if: ${{ !inputs.skip }}
 
