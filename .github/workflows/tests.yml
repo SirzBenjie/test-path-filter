@@ -30,9 +30,10 @@ jobs:
           filters: .github/test-filters.yml
 
   run-tests:
+    strategy:
+      matrix:
+        shard: [1, 2, 3] # Define the shards for parallel execution
     name: Run Tests
-    matrix:
-        shard: [1, 2, 3]
     uses: ./.github/workflows/reusable.yml
     needs: changes
     with:
