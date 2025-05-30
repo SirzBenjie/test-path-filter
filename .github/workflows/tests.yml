@@ -15,7 +15,7 @@ on:
     types: [checks_requested]
 
 jobs:
-  check-path-change-filter:
+  changes:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
@@ -30,8 +30,8 @@ jobs:
 
   run-tests:
     name: Run Tests
-    needs: check-path-change-filter
+    needs: changes
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: echo ${{ needs.check-path-change-filter.outputs.all }}
+        run: echo ${{ needs.changes.outputs.all }}
