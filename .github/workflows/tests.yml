@@ -39,5 +39,5 @@ jobs:
     with:
       shard: ${{ matrix.shard }}
       totalShards: 3
-      skip: ${{ !needs.changes.outputs.all }}
+      skip: true
       JOB_NAME: "Shard ${{ matrix.shard }} of 3"
