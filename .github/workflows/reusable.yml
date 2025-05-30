@@ -18,7 +18,7 @@ on:
         type: string
 
 env:
-  JOB_NAME: Shard ${{ inputs.shard }} of ${{ inputs.totalShards }}
+  JOB_NAME: Shard
 jobs:
   test:
     name: ${{ inputs.JOB_NAME || 'Test Shard' }}
