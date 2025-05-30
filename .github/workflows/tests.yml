@@ -28,12 +28,12 @@ jobs:
         id: filter
         with:
           filters: .github/test-filters.yml
-      - name: print output
-        if: steps.filter.outputs.all == 'true'
-        run: echo changes detected
-      - name: print output
-        if: steps.filter.outputs.all != 'true'
-        run: echo ${{ steps.filter.outputs }}
+    #   - name: print output
+    #     if: steps.filter.outputs.all == 'true'
+    #     run: echo changes detected
+    #   - name: print output
+    #     if: steps.filter.outputs.all != 'true'
+    #     run: echo ${{ steps.filter.outputs }}
 
   run-tests:
     name: Run Tests
@@ -47,7 +47,7 @@ jobs:
     name: Run Steps 2
     needs: changes
     runs-on: ubuntu-latest
-    if: ${{ needs.changes.outputs.all == 'false' }}
+    if: ${{ needs.changes.outputs.all != 'true' }}
     steps:
       - name: echo
-        run: echo "Running steps 2 because changes were detected"
+        run: echo ${{ needs.changes.outputs }}
