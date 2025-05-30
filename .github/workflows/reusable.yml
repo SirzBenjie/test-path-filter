@@ -13,6 +13,9 @@ on:
         required: true
         type: boolean
         default: false
+      JOB_NAME:
+        required: false
+        type: string
 
 env:
   JOB_NAME: Shard ${{ inputs.shard }} of ${{ inputs.totalShards }}
