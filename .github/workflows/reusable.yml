@@ -18,7 +18,7 @@ env:
   JOB_NAME: Shard ${{ inputs.shard }} of ${{ inputs.totalShards }}
 jobs:
   test:
-    name: ${{ vars.JOB_NAME }}
+    name: ${{ vars.JOB_NAME || 'Test Shard' }}
     runs-on: ubuntu-latest
     if: ${{ !inputs.skip }}
 
