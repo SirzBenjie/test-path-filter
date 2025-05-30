@@ -3,7 +3,7 @@ nomatch:
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
 src:
-  - "src/**"
+  - "src/**/*"
   - "!**/*.py" # No .py files
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
@@ -13,11 +13,8 @@ test:
   - "!**/*.sh" # No .sh files
   - "!**/*.md" # No .md files
 public:
-  - "public/**"
-  - "!**/*.py" # No .py files
-  - "!**/*.sh" # No .sh files
-  - "!**/*.md" # No .md files
-  - "!**/.gitkeep*" # .gitkeep and family
+  - "public/**/*"
+
 workflows:
   # Workflows that can impact tests
   - ".github/workflows/test*.yml"
